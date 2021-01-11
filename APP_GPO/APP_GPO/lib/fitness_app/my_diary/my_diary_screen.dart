@@ -4,6 +4,8 @@ import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../fitness_app_home_screen.dart';
+
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({Key key, this.animationController}) : super(key: key);
 
@@ -316,10 +318,19 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
+                                    child: IconButton(
+                                      icon: Icon(
                                       Icons.calendar_today,
                                       color: FitnessAppTheme.grey,
                                       size: 18,
+                                      ),
+                                      padding: EdgeInsets.all(0),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => FitnessAppHomeScreen()),
+                                        );
+                                      },
                                     ),
                                   ),
                                   Text(

@@ -3,12 +3,15 @@ import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import '../fitness_app_home_screen.dart';
+
 class MediterranesnDietView extends StatelessWidget {
   final AnimationController animationController;
   final Animation animation;
   final String medicine;
   final int pills;
   final String hour;
+  final int MAX_PILLS = 15;
 
   const MediterranesnDietView(
       {Key key, this.animationController, this.animation, this.medicine, this.pills, this.hour})
@@ -16,8 +19,17 @@ class MediterranesnDietView extends StatelessWidget {
 
   int PercentualAngle(){
     int angle;
-    angle = (pills*360/20).round();
+    angle = (pills*360/MAX_PILLS).round();
     return angle;
+  }
+
+  String color(){
+    String color;
+    if (pills < 5)
+      color = "#ff0000";
+    else
+      color = "#8A98E8";
+    return color;
   }
 
   @override
@@ -27,6 +39,13 @@ class MediterranesnDietView extends StatelessWidget {
       builder: (BuildContext context, Widget child) {
         return FadeTransition(
           opacity: animation,
+            child: new GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FitnessAppHomeScreen()),
+              );
+            },
           child: new Transform(
             transform: new Matrix4.translationValues(
                 0.0, 30 * (1.0 - animation.value), 0.0),
@@ -287,8 +306,8 @@ class MediterranesnDietView extends StatelessWidget {
                                       painter: CurvePainter(
                                           colors: [
                                             FitnessAppTheme.nearlyDarkBlue,
-                                            HexColor("#8A98E8"),
-                                            HexColor("#8A98E8")
+                                            HexColor(color()),
+                                            HexColor(color())
                                           ],
                                           angle: PercentualAngle() +
                                               (360 - PercentualAngle()) *
@@ -530,6 +549,7 @@ class MediterranesnDietView extends StatelessWidget {
                 ),
               ),
             ),
+          ),
           ),
         );
       },

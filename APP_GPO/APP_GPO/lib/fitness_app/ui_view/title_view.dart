@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
 import 'package:flutter/material.dart';
 
+import '../fitness_app_home_screen.dart';
+
 class TitleView extends StatelessWidget {
   final String titleTxt;
   final String subTxt;
@@ -46,7 +48,12 @@ class TitleView extends StatelessWidget {
                     InkWell(
                       highlightColor: Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FitnessAppHomeScreen()),
+                        );
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Row(

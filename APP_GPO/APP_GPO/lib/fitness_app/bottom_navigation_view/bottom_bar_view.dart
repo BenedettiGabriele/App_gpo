@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
+import 'package:best_flutter_ui_templates/fitness_app/fitness_app_home_screen.dart';
 import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
+import 'package:best_flutter_ui_templates/fitness_app/traning/training_screen.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 
@@ -168,11 +170,16 @@ class _BottomBarViewState extends State<BottomBarView>
                           onTap: () {
                             widget.addClick();
                           },
-                          child: Icon(
-                            Icons.add,
-                            color: FitnessAppTheme.white,
-                            size: 32,
-                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.add,
+                              color: FitnessAppTheme.white,
+                              size: 32,),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FitnessAppHomeScreen()),
+                              );
+                            },
                         ),
                       ),
                     ),
@@ -181,6 +188,7 @@ class _BottomBarViewState extends State<BottomBarView>
               ),
             ),
           ),
+        ),
         ),
       ],
     );
