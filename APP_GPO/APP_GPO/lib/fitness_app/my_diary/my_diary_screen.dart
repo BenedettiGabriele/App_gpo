@@ -323,6 +323,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                       Icons.calendar_today,
                                       color: FitnessAppTheme.grey,
                                       size: 18,
+                                        
                                       ),
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
