@@ -1,6 +1,11 @@
+//import 'dart:js_util';
+import 'dart:io';
+
+import 'package:best_flutter_ui_templates/fitness_app/dbManager.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/mediterranesn_diet_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
+import 'package:best_flutter_ui_templates/fitness_app/medicine.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -17,6 +22,7 @@ class MyDiaryScreen extends StatefulWidget {
 class _MyDiaryScreenState extends State<MyDiaryScreen>
     with TickerProviderStateMixin {
   Animation<double> topBarAnimation;
+  bool loading;
 
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
@@ -26,7 +32,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
   @override
   void initState() {
-
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: widget.animationController,
@@ -59,7 +64,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     super.initState();
   }
 
-  void addAllListData() {
+  void addAllListData() async {
     const int count = 9;
 
     listViews.add(
@@ -73,24 +78,33 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController,
       ),
     );
-    listViews.add(
+
+    DbManager db = new DbManager();
+    var _medicine = await db.getMedicine();
+    //List<Medicine> medicine = _medicine;
+
+    _medicine.forEach((element) {
+      listViews.add(
+        MediterranesnDietView(
+          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+              CurvedAnimation(
+                  parent: widget.animationController,
+                  curve: Interval((1 / count) * 1, 1.0,
+                      curve: Curves.fastOutSlowIn))),
+          animationController: widget.animationController,
+          medicine: element.name,
+          pills: element.numPills,
+          hour: element.hour,
+        ),
+      );
+    });
+
+    /*listViews.add(
       MediterranesnDietView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
                 Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-        medicine: "Tachipirina",
-        pills: 10,
-        hour: "17:00",
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-            Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
         medicine: "Aspirina",
         pills: 12,
@@ -102,7 +116,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
-            Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
         medicine: "Vivin C",
         pills: 4,
@@ -183,7 +197,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                   curve: Interval((1 / count) * 8, 1.0,
                       curve: Curves.fastOutSlowIn))),
           animationController: widget.animationController),
-    );*/
+    );*/*/
   }
 
   Future<bool> getData() async {
@@ -193,6 +207,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
   @override
   Widget build(BuildContext context) {
+    //if (loading) return CircularProgressIndicator();
     return Container(
       color: FitnessAppTheme.background,
       child: Scaffold(
@@ -320,16 +335,17 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                     padding: const EdgeInsets.only(right: 8),
                                     child: IconButton(
                                       icon: Icon(
-                                      Icons.calendar_today,
-                                      color: FitnessAppTheme.grey,
-                                      size: 18,
-                                        
+                                        Icons.calendar_today,
+                                        color: FitnessAppTheme.grey,
+                                        size: 18,
                                       ),
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => FitnessAppHomeScreen()),
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FitnessAppHomeScreen()),
                                         );
                                       },
                                     ),

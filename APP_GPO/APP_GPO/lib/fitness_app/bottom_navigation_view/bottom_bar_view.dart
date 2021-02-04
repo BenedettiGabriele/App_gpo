@@ -170,15 +170,19 @@ class _BottomBarViewState extends State<BottomBarView>
                             widget.addClick();
                           },
                           child: IconButton(
-                            icon: Icon(Icons.add,
+                            icon: Icon(
+                              Icons.add,
                               color: FitnessAppTheme.white,
-                              size: 32,),
+                              size: 32,
+                            ),
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => NewMedicine()),
+                                MaterialPageRoute(
+                                    builder: (context) => AddMedicine()),
                               );
                             },
+                          ),
                         ),
                       ),
                     ),
@@ -187,7 +191,6 @@ class _BottomBarViewState extends State<BottomBarView>
               ),
             ),
           ),
-        ),
         ),
       ],
     );
