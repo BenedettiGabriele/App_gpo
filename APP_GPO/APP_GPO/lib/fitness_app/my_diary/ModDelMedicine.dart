@@ -1,20 +1,22 @@
-//import 'package:best_flutter_ui_templates/fitness_app/my_diary/my_diary_screen.dart';
-import 'package:best_flutter_ui_templates/fitness_app/dbManager.dart';
-import 'package:best_flutter_ui_templates/fitness_app/medicine.dart';
 import 'package:flutter/material.dart';
-
 import '../fintness_app_theme.dart';
 
-class AddMedicine extends StatelessWidget {
-  final newHour = TextEditingController();
-  final newNPills = TextEditingController();
-  final newMedicine = TextEditingController();
+class ModDelMedicine extends StatelessWidget {
+  final enteredName = TextEditingController();
+  final enteredPills = TextEditingController();
+  final enteredHour = TextEditingController();
+
+  ModDelMedicine(name, pills, hour) {
+    this.enteredName.text = name;
+    this.enteredPills.text = pills.toString();
+    this.enteredHour.text = hour;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Aggiungi un nuovo promemoria"),
+        title: Text("Modifica il promemoria"),
         backgroundColor: FitnessAppTheme.nearlyDarkBlue,
       ),
       body: SafeArea(
@@ -45,7 +47,6 @@ class AddMedicine extends StatelessWidget {
                   width: 150,
                   child: TextField(
                     cursorColor: FitnessAppTheme.nearlyDarkBlue,
-                    controller: newMedicine,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
@@ -57,6 +58,7 @@ class AddMedicine extends StatelessWidget {
                       labelText: 'Nome',
                       labelStyle: TextStyle(color: FitnessAppTheme.lightText),
                     ),
+                    controller: enteredName,
                   ),
                 ),
               ],
@@ -86,7 +88,7 @@ class AddMedicine extends StatelessWidget {
                   width: 150,
                   child: TextField(
                     cursorColor: FitnessAppTheme.nearlyDarkBlue,
-                    controller: newNPills,
+                    controller: enteredPills,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
@@ -127,7 +129,7 @@ class AddMedicine extends StatelessWidget {
                   width: 150,
                   child: TextField(
                     cursorColor: FitnessAppTheme.nearlyDarkBlue,
-                    controller: newHour,
+                    controller: enteredHour,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderSide:
@@ -160,15 +162,40 @@ class AddMedicine extends StatelessWidget {
                     padding: EdgeInsets.all(12.0),
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(8.0)),
+                    onPressed: () {},
+                    child: Text(
+                      "Modifica promemoria",
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                  ),
+                ),
+                Container(width: 20),
+              ],
+            ),
+            Container(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Container(width: 20),
+                Expanded(
+                  child: FlatButton(
+                    color: FitnessAppTheme.nearlyDarkBlue,
+                    textColor: Colors.white,
+                    disabledColor: Colors.grey,
+                    disabledTextColor: Colors.black,
+                    padding: EdgeInsets.all(12.0),
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(8.0)),
                     onPressed: () {
-                      Medicine medicine = new Medicine(newMedicine.text,
-                          int.parse(newNPills.text), newHour.text);
-                      DbManager db = new DbManager();
-                      db.insertMedicine(medicine);
-                      Navigator.pop(context);
+                      print(enteredName.text +
+                          " " +
+                          enteredPills.text.toString() +
+                          " " +
+                          enteredHour.text);
                     },
                     child: Text(
-                      "Aggiungi promemoria",
+                      "Elimina promemoria",
                       style: TextStyle(fontSize: 20.0),
                     ),
                   ),

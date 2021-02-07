@@ -69,6 +69,10 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     return true;
   }
 
+  void aggiorna() {
+    setState(() {});
+  }
+
   Widget bottomBar() {
     return Column(
       children: <Widget>[
@@ -95,8 +99,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      SettingsTwoPage();
+                  tabBody = SettingsTwoPage();
                 });
               });
             }

@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:best_flutter_ui_templates/fitness_app/dbManager.dart';
+import 'package:best_flutter_ui_templates/fitness_app/my_diary/ModDelMedicine.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/mediterranesn_diet_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
@@ -333,21 +334,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.only(right: 8),
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.calendar_today,
-                                        color: FitnessAppTheme.grey,
-                                        size: 18,
-                                      ),
-                                      padding: EdgeInsets.all(0),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  FitnessAppHomeScreen()),
-                                        );
-                                      },
+                                    child: Icon(
+                                      Icons.calendar_today,
+                                      color: FitnessAppTheme.grey,
+                                      size: 18,
                                     ),
                                   ),
                                   Text(
