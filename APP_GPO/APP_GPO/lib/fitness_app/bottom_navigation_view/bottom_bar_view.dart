@@ -182,7 +182,6 @@ class _BottomBarViewState extends State<BottomBarView>
                                 MaterialPageRoute(
                                     builder: (context) => AddMedicine()),
                               );
-                              FitnessAppHomeScreen();
                             },
                           ),
                         ),

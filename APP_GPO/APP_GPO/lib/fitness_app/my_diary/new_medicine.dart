@@ -1,6 +1,7 @@
 //import 'package:best_flutter_ui_templates/fitness_app/my_diary/my_diary_screen.dart';
 import 'package:best_flutter_ui_templates/fitness_app/dbManager.dart';
 import 'package:best_flutter_ui_templates/fitness_app/medicine.dart';
+import 'package:best_flutter_ui_templates/fitness_app/my_diary/my_diary_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../fintness_app_theme.dart';

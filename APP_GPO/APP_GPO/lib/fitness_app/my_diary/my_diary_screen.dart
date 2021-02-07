@@ -202,13 +202,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   }
 
   Future<bool> getData() async {
-    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
+    await Future<dynamic>.delayed(const Duration(seconds: 1));
     return true;
   }
 
   @override
   Widget build(BuildContext context) {
-    //if (loading) return CircularProgressIndicator();
     return Container(
       color: FitnessAppTheme.background,
       child: Scaffold(

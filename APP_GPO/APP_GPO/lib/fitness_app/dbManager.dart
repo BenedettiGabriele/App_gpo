@@ -73,6 +73,18 @@ class DbManager {
     print('result : $result');
   }
 
+  void deleteMedicine(Medicine medicine) async {
+    //Inserisco nel db la sveglia che ho appena impostato nella UI
+    var db = await this.database;
+    db.execute("DELETE  FROM tableMedicine WHERE name = '" +
+        medicine.name +
+        "' AND numPills = '" +
+        medicine.numPills.toString() +
+        "' AND hour = '" +
+        medicine.hour +
+        "'");
+  }
+
   /*Future<List<AlarmInfo>> getAlarms() async {
     List<AlarmInfo> _alarms = [];
 

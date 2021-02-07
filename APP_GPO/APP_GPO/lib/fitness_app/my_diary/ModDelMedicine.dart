@@ -1,5 +1,7 @@
+import 'package:best_flutter_ui_templates/fitness_app/dbManager.dart';
 import 'package:flutter/material.dart';
 import '../fintness_app_theme.dart';
+import '../medicine.dart';
 
 class ModDelMedicine extends StatelessWidget {
   final enteredName = TextEditingController();
@@ -162,7 +164,9 @@ class ModDelMedicine extends StatelessWidget {
                     padding: EdgeInsets.all(12.0),
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(8.0)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       "Modifica promemoria",
                       style: TextStyle(fontSize: 20.0),
@@ -188,11 +192,10 @@ class ModDelMedicine extends StatelessWidget {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(8.0)),
                     onPressed: () {
-                      print(enteredName.text +
-                          " " +
-                          enteredPills.text.toString() +
-                          " " +
-                          enteredHour.text);
+                      DbManager db = new DbManager();
+                      db.deleteMedicine(new Medicine(enteredName.text,
+                          int.parse(enteredPills.text), enteredHour.text));
+                      Navigator.pop(context);
                     },
                     child: Text(
                       "Elimina promemoria",
