@@ -51,7 +51,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Altro...'),
-        backgroundColor: FitnessAppTheme.nearlyDarkBlue,
+        backgroundColor: Colors.indigo,
       ),
       body: SettingsList(
         sections: [
@@ -59,6 +59,16 @@ class _AboutScreenState extends State<AboutScreen> {
             SettingsTile(
               title: "Società: ",
               subtitle: "What pill is it?",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
+              subtitleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                letterSpacing: 1,
+              ),
               onTap: () {
                 launch(_siteLaunchUri.toString());
               },
@@ -66,6 +76,16 @@ class _AboutScreenState extends State<AboutScreen> {
             SettingsTile(
               title: "Contattaci:",
               subtitle: "progetto.gpolonghi@gmail.com",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
+              subtitleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                letterSpacing: 1,
+              ),
               onTap: () {
                 launch(_emailLaunchUri.toString());
               },
@@ -73,6 +93,16 @@ class _AboutScreenState extends State<AboutScreen> {
             SettingsTile(
               title: "Contattaci:",
               subtitle: "+39 383 724 6872",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
+              subtitleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                letterSpacing: 1,
+              ),
               onTap: () {
                 launch(_telLaunchUri.toString());
               },
@@ -87,6 +117,16 @@ class _AboutScreenState extends State<AboutScreen> {
             SettingsTile(
               title: "Versione: ",
               subtitle: "1.0",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
+              subtitleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                letterSpacing: 1,
+              ),
             ),
           ]),
         ],

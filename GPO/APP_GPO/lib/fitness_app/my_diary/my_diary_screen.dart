@@ -310,18 +310,18 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(left: 10),
+                              margin: EdgeInsets.only(left: 10, bottom: 5),
                               child: Image.asset(
                                 'assets/fitness_app/wpii.png',
-                                width: 40,
-                                height: 40,
+                                width: 34 + 6 - 6 * topBarOpacity,
+                                height: 34 + 6 - 6 * topBarOpacity,
                               ),
                             ),
                             Container(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'WPII?',
+                                  'WPIsIt?',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -333,9 +333,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 30,
-                            ),
+                            Container(width: 30),
                             SizedBox(
                               height: 38,
                               width: 38,
@@ -352,35 +350,36 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 ),
                               ),
                             ),
-                            Padding(
+                            /*Padding(
                               padding: const EdgeInsets.only(
                                 left: 8,
                                 right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: FitnessAppTheme.grey,
-                                      size: 18,
-                                    ),
+                              ),*/
+                            //child:
+                            Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Icon(
+                                    Icons.calendar_today,
+                                    color: FitnessAppTheme.grey,
+                                    size: 18,
                                   ),
-                                  Text(
-                                    date,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: FitnessAppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: FitnessAppTheme.darkerText,
-                                    ),
+                                ),
+                                Text(
+                                  date,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 18,
+                                    letterSpacing: -0.2,
+                                    color: FitnessAppTheme.darkerText,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
+                            //),
                             SizedBox(
                               height: 38,
                               width: 38,

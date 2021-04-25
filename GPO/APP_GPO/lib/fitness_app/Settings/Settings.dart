@@ -54,8 +54,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 subtitle: 'Italiano',
                 subtitleTextStyle: TextStyle(
                   fontFamily: FitnessAppTheme.fontName,
+                  //fontWeight: FontWeight.w600,
                   fontSize: 18,
-                  letterSpacing: 0.5,
+                  color: FitnessAppTheme.darkerText,
                 ),
                 leading: Icon(Icons.language),
                 onTap: () {
@@ -75,8 +76,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 subtitle: 'What pill is it?',
                 subtitleTextStyle: TextStyle(
                   fontFamily: FitnessAppTheme.fontName,
+                  //fontWeight: FontWeight.w600,
                   fontSize: 18,
-                  letterSpacing: 0.5,
+                  color: FitnessAppTheme.darkerText,
                 ),
                 leading: Icon(Icons.cloud_queue),
                 onTap: () {
@@ -198,8 +200,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 Text(
-                  'Version: 2.4.0 (287)',
-                  style: TextStyle(color: Colors.indigo[500]),
+                  'Versione: 1.0',
+                  style: TextStyle(
+                    fontFamily: FitnessAppTheme.fontName,
+                    //fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: Colors.indigo[500],
+                  ),
                 ),
               ],
             ),

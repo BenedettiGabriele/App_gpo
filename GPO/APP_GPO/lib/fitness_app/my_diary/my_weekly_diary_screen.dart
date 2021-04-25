@@ -405,30 +405,30 @@ class _MyWeeklyDiaryScreenState extends State<MyWeeklyDiaryScreen>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(left: 10),
+                              margin: EdgeInsets.only(left: 10, bottom: 5),
                               child: Image.asset(
                                 'assets/fitness_app/wpii.png',
-                                width: 40,
-                                height: 40,
+                                width: 34 + 6 - 6 * topBarOpacity,
+                                height: 34 + 6 - 6 * topBarOpacity,
                               ),
                             ),
                             Container(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'WPII?',
+                                  'WPIsIt?',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    fontSize: 18 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
                                     color: FitnessAppTheme.darkerText,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            /*SizedBox(
                               height: 38,
                               width: 38,
                               child: InkWell(
@@ -488,7 +488,7 @@ class _MyWeeklyDiaryScreenState extends State<MyWeeklyDiaryScreen>
                                   ),
                                 ),
                               ),
-                            ),
+                            ),*/
                           ],
                         ),
                       )

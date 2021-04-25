@@ -16,13 +16,19 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lingua'),
-        backgroundColor: FitnessAppTheme.nearlyDarkBlue,
+        backgroundColor: Colors.indigo,
       ),
       body: SettingsList(
         sections: [
           SettingsSection(tiles: [
             SettingsTile(
               title: "Italiano",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
               trailing: trailingWidget(0),
               onTap: () {
                 changeLanguage(0);
@@ -30,6 +36,12 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
             ),
             SettingsTile(
               title: "English",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
               trailing: trailingWidget(1),
               onTap: () {
                 changeLanguage(1);
@@ -37,6 +49,12 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
             ),
             SettingsTile(
               title: "Spanish",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
               trailing: trailingWidget(2),
               onTap: () {
                 changeLanguage(2);
@@ -44,6 +62,12 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
             ),
             SettingsTile(
               title: "German",
+              titleTextStyle: TextStyle(
+                fontFamily: FitnessAppTheme.fontName,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: FitnessAppTheme.darkerText,
+              ),
               trailing: trailingWidget(3),
               onTap: () {
                 changeLanguage(3);

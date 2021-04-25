@@ -224,6 +224,10 @@ class _ModDelMedicineState extends State<ModDelMedicine> {
                         initialTime: TimeOfDay(hour: ora, minute: minuti),
                       );
 
+                      timePickerTheme:
+                      TimePickerThemeData(
+                        backgroundColor: Colors.amberAccent,
+                      );
                       if (selectedTime != null) {
                         final now = DateTime.now();
                         var selectedDateTime = DateTime(now.year, now.month,
