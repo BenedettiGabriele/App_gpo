@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
+import 'package:best_flutter_ui_templates/fitness_app/my_diary/my_diary_screen.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/new_medicine.dart';
 import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
 import 'package:best_flutter_ui_templates/main.dart';

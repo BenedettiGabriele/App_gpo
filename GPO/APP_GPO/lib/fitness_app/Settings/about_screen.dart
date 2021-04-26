@@ -21,7 +21,7 @@ _launchURL() async {
 
 final Uri _emailLaunchUri = Uri(
   scheme: 'mailto',
-  path: 'progetto.gpolonghi@gmail.com',
+  path: 'information@whatpillisit.it',
 );
 
 final Uri _telLaunchUri = Uri(
@@ -75,7 +75,7 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
             SettingsTile(
               title: "Contattaci:",
-              subtitle: "progetto.gpolonghi@gmail.com",
+              subtitle: "information@whatpillisit.it",
               titleTextStyle: TextStyle(
                 fontFamily: FitnessAppTheme.fontName,
                 fontWeight: FontWeight.w600,

@@ -222,12 +222,20 @@ class _ModDelMedicineState extends State<ModDelMedicine> {
                       var selectedTime = await showTimePicker(
                         context: context,
                         initialTime: TimeOfDay(hour: ora, minute: minuti),
+                        builder: (BuildContext context, Widget child) {
+                          return Theme(
+                            data: ThemeData.light().copyWith(
+                              colorScheme: ColorScheme.light(
+                                //background: Colors.black,
+                                primary: Colors.indigo,
+                              ),
+                              dialogBackgroundColor: Colors.blue[900],
+                            ),
+                            child: child,
+                          );
+                        },
                       );
 
-                      timePickerTheme:
-                      TimePickerThemeData(
-                        backgroundColor: Colors.amberAccent,
-                      );
                       if (selectedTime != null) {
                         final now = DateTime.now();
                         var selectedDateTime = DateTime(now.year, now.month,

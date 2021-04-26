@@ -235,6 +235,18 @@ class _AddMedicineState extends State<AddMedicine> {
                       var selectedTime = await showTimePicker(
                         context: context,
                         initialTime: TimeOfDay.now(),
+                        builder: (BuildContext context, Widget child) {
+                          return Theme(
+                            data: ThemeData.light().copyWith(
+                              colorScheme: ColorScheme.light(
+                                //background: Colors.black,
+                                primary: Colors.indigo,
+                              ),
+                              dialogBackgroundColor: Colors.blue[900],
+                            ),
+                            child: child,
+                          );
+                        },
                       );
                       if (selectedTime != null) {
                         final now = DateTime.now();

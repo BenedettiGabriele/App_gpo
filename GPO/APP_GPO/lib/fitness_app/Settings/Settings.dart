@@ -32,7 +32,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Impostazioni'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'assets/fitness_app/impostazioni.png',
+              color: Colors.white,
+              width: 30,
+              height: 30,
+            ),
+            Container(width: 10),
+            Text('Impostazioni'),
+          ],
+        ),
         backgroundColor: Colors.indigo[500],
       ),
       body: SettingsList(
@@ -167,12 +179,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   color: FitnessAppTheme.lightText,
                 ),
                 leading: Icon(Icons.phonelink_lock),
-                switchValue: darkMode,
+                switchValue: false,
                 switchActiveColor: Colors.indigo[500],
                 onToggle: (bool value) {
-                  setState(() {
+                  /*setState(() {
                     darkMode = value;
-                  });
+                  });*/
                 },
               ),
             ],
@@ -187,7 +199,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   leading: Icon(Icons.collections_bookmark)),
             ],
           ),*/
-          CustomSection(
+          /*CustomSection(
             child: Column(
               children: [
                 Padding(
@@ -210,7 +222,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ],
             ),
-          ),
+          ),*/
         ],
       ),
     );
