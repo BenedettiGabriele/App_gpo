@@ -3,6 +3,7 @@ import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
 import 'package:best_flutter_ui_templates/fitness_app/Settings/Settings.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/my_weekly_diary_screen.dart';
 import 'package:flutter/material.dart';
+import 'bluetooth/bluetoothScreen.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fintness_app_theme.dart';
 import 'my_diary/my_diary_screen.dart';
@@ -95,7 +96,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       MyDiaryScreen(animationController: animationController);
                 });
               });
-            } else if (index == 2 || index == 3) {
+            } else if (index == 3) {
               animationController.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -112,6 +113,15 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 setState(() {
                   tabBody = MyWeeklyDiaryScreen(
                       animationController: animationController);
+                });
+              });
+            } else if (index == 2) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody = BluetoothScreen();
                 });
               });
             }
